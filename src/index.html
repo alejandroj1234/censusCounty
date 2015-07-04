@@ -6,28 +6,24 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Simple Js, Bootstrap Census App">
+    <meta name="author" content="Alejandro Jaramillo ">
 
-    <title>Grayscale - Start Bootstrap Theme</title>
+    <title>Census App</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="css/grayscale.css" rel="stylesheet">
+    <!-- bootstrap template CSS -->
+    <link href="css/bootstrap_template.css" rel="stylesheet">
+
+    <!-- Map and Graphs CSS -->
+    <link href="css/map_and_graphs.css" rel="stylesheet">    
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
 </head>
 
@@ -56,7 +52,7 @@
                         <a class="page-scroll" href="#about">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#download">Map &amp; Graphs</a>
+                        <a class="page-scroll" href="#map-graphs">Map &amp; Graphs</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
@@ -71,11 +67,9 @@
     <!-- Intro Header -->
     <header class="intro">
         <div class="intro-body">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <!--<h1 class="brand-heading"></h1>
-                        <p class="intro-text"><br></p>-->
                         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                         <a href="#about" class="btn btn-circle page-scroll">
                             <i class="fa fa-angle-double-down animated"></i>
@@ -88,46 +82,357 @@
 
     <!-- About Section -->
     <section id="about" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>About Grayscale</h2>
-                <p>Grayscale is a free Bootstrap 3 theme created by Start Bootstrap. It can be yours right now, simply download the template on the preview page. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
-                <p>This theme features stock photos by Gratisography along with a custom Google Maps skin courtesy of Snazzy Maps.</p>
-                <p>Grayscale includes full HTML, CSS, and custom JavaScript files along with LESS files for easy customization.</p>
+        <div ="container">    
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>About Census App</h2>
+                    <p>Census App is a JavaScript based application which presents United States Census data in an interactive map and dynamic graphs.</p>
+                    <p>Census App is configured in the back-end using Node.js for the platform and Express for the server. In the front-end Bootstrap is used for the user interface components and D3.js is used to render the Census Bureau data in various formats. The data is attained by calling the US Census Bureau JSON-based APIs.</p>
+                    <p>Users can select from various demographic distribution criteria in order to see which counties match the selected criteria. Users are then able to continue selecting criteria, up to five in total, presenting only the counties which match all the criteria selected. Users can view all of the demographic criteria for a specific county in the form of various graphs by clicking on a county on the map.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Download Section -->
-    <section id="download" class="content-section text-center">
-        <div class="download-section">
-            <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-                    
+    <!-- Menu and Map -->
+    <section id="map-graphs" class="container">
+        <div class="map-section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="dropDownMenusAccordion" class="col-lg-3" >
+                        <!--INCOME DISTRIBUTION-->
+                        <h5 id="incomeDistributionHeader" class="accordionHeader">Single Person Income Distribution</h5>
+                        <div id="incomeDistribution">
+                            <h6 id="MaleIncome" class="accordion-middle"> Male Income </h6>
+                            <div>
+                                <ol>
+                                    <li id="0-24999PerYearIncomeMale" class="accordion-last">Male Income Distribution: 0-24,999</li>
+                                    <li id="25-34999PerYearIncomeMale" class="accordion-last">Male Income Distribution: 25,000-34,999</li>
+                                    <li id="35-44999PerIncomeMale" class="accordion-last">Male Income Distribution: 35,999-44,999</li>
+                                    <li id="45AndUpPerIncomeMale" class="accordion-last">Male Income Distribution: 45,000 and up</li>
+                                </ol>
+                            </div>
+
+                            <h6 id="FemaleIncome" class="accordion-middle"> Female Income </h6>
+                            <div>
+                                <ol>            
+                                    <li id="0-14999PerYearIncomeFemale" class="accordion-last">Female Income Distribution: 0-14,999</li>
+                                    <li id="15-19999PerIncomeFemale" class="accordion-last">Female Income Distribution: 15,000-19,999</li>
+                                    <li id="20-24999PerYearIncomeFemale" class="accordion-last">Female Income Distribution: 20,000-25,999</li>
+                                    <li id="25-29999PerYearIncomeFemale" class="accordion-last">Female Income Distribution: 25,000-29,999</li>
+                                    <li id="30AndUpPerIncomeFemale" class="accordion-last">Female Income Distribution: 30,000 and up</li>
+                                </ol>
+                            </div>
+
+                            <h6 id="MedianIndividualIncome" class="accordion-middle"> Median Individual Income </h6>
+                            <div>
+                                <ol>            
+                                    <li id="0-19999PerYearMedianIndividualIncome" class="accordion-last">Median Individual Income Distribution: 0-19,999</li>
+                                    <li id="20-29999PerYearMedianIndividualIncome" class="accordion-last">Median Individual Income Distribution: 20,000-29,999</li>
+                                    <li id="30-39999PerYearMedianIndividualIncome" class="accordion-last">Median Individual Income Distribution: 30,000-39,999</li>
+                                    <li id="40AndUpPerYearMedianIndividualIncome" class="accordion-last">Median Individual Income Distribution: 40,000 and up</li>
+                                </ol>
+                            </div>
+
+                            <h6 id="MedianHouseholdIncome" class="accordion-middle"> Median Household Income </h6>
+                            <div>
+                                <ol>            
+                                    <li id="0-34999PerYearMedianHouseholdIncome" class="accordion-last">Median Household Income Distribution: 0-34,999</li>
+                                    <li id="35-44999PerYearMedianHouseholdIncome" class="accordion-last">Median Household Income Distribution: 35,000-44,999</li>
+                                    <li id="45-54999PerYearMedianHouseholdIncome" class="accordion-last">Median Household Income Distribution: 45,000-54,999</li>
+                                    <li id="55-64999PerYearMedianHouseholdIncome" class="accordion-last">Median Household Income Distribution: 55,000-64,999</li>
+                                    <li id="65AndUpPerYearMedianHouseholdIncome" class="accordion-last">Median Household Income Distribution: 65,000 and up</li>
+                                </ol>
+                            </div>
+                        </div>
+       
+                        <!--RACE DISTRIBUTION-->
+                        <h5 id="raceDistributionHeader" class="accordionHeader">Race Distribution</h5>
+                        <div id="raceDistribution">
+                            <h6 id="WhiteNonHispanic" class="accordion-middle"> White Non-Hispanic </h6>
+                            <div>    
+                                <ol>
+                                    <li id="0-1999PercentWhite" class="accordion-last">White Distribution: 0-19.99 Percent</li>
+                                    <li id="20-3999PercentWhite" class="accordion-last">White Distribution: 20-39.99 Percent</li>
+                                    <li id="40-5999PercentWhite" class="accordion-last">White Distribution: 40-59.99 Percent</li>
+                                    <li id="60-7999PercentWhite" class="accordion-last">White Distribution: 60-79.99 Percent</li>
+                                    <li id="80-100PercentWhite" class="accordion-last">White Distribution: 80-100 Percent</li>
+                                </ol>
+                            </div>
+
+                            <h6 id="Black" class="accordion-middle"> Black </h6>
+                            <div>
+                                <ol>
+                                    <li id="0-1999PercentBlack" class="accordion-last">Black Distribution: 0-19.99 Percent</li>
+                                    <li id="20-3999PercentBlack" class="accordion-last">Black Distribution: 20-39.99 Percent</li>
+                                    <li id="40-5999PercentBlack" class="accordion-last">Black Distribution: 40-59.99 Percent</li>
+                                    <li id="60-7999PercentBlack" class="accordion-last">Black Distribution: 60-79.99 Percent</li>
+                                    <li id="80-100PercentBlack" class="accordion-last">Black Distribution: 80-100 Percent</li>
+                                </ol>
+                            </div>   
+
+                            <h6 id="Asian" class="accordion-middle"> Asian </h6>
+                            <div>
+                                <ol>
+                                    <li id="0-9999PercentAsian" class="accordion-last">Asian Distribution: 0-9.99 Percent</li>
+                                    <li id="10-1999PercentAsian" class="accordion-last">Asian Distribution: 10-19.99 Percent</li>
+                                    <li id="20-100PercentAsian" class="accordion-last">Asian Distribution: 20-100 Percent</li>
+                                </ol>
+                            </div>    
+
+                            <h6 id="Hispanic" class="accordion-middle"> Hispanic </h6>
+                            <div>    
+                                <ol>
+                                    <li id="0-1999PercentHispanic" class="accordion-last">Hispanic Distribution: 0-19.99 Percent</li>
+                                    <li id="20-3999PercentHispanic" class="accordion-last">Hispanic Distribution: 20-39.99 Percent</li>
+                                    <li id="40-5999PercentHispanic" class="accordion-last">Hispanic Distribution: 40-59.99 Percent</li>
+                                    <li id="60-7999PercentHispanic" class="accordion-last">Hispanic Distribution: 60-79.99 Percent</li>
+                                    <li id="80-100PercentHispanic" class="accordion-last">Hispanic Distribution: 80-100 Percent</li>
+                                </ol>
+                            </div>
+                        </div>
+       
+                        <!--EDUCATION DISTRIBUTION-->
+                        <h5 id="educationDistributionHeader" class="accordionHeader">Highest Level of Education Distribution</h5>
+                        <div id="educationDistribution">
+                            <h6 id="LessThanHighSchool" class="accordion-middle"> Less Than High School </h6>
+                            <div>
+                                <ol>
+                                    <li id="0-0499PercentLessThanHighSchool" class="accordion-last">Less Than High School Distribution: 0-4.99 Percent</li>
+                                    <li id="5-9999PercentLessThanHighSchool" class="accordion-last">Less Than High School Distribution: 5-9.99 Percent</li>
+                                    <li id="10AndMorePercentLessThanHighSchool" class="accordion-last">Less Than High School Distribution: 10 And More Percent</li>
+                                </ol>
+                            </div>
+
+                            <h6 id="someHighSchool" class="accordion-middle"> Some High School </h6>
+                            <div>
+                                <ol>
+                                    <li id="0-0499PercentSomeHighSchool" class="accordion-last">Some High School Distribution: 0-4.99 Percent</li>
+                                    <li id="5-0999PercentSomeHighSchool" class="accordion-last">Some High School Distribution: 5-9.99 Percent</li>
+                                    <li id="10-1499PercentSomeHighSchool" class="accordion-last">Some High School Distribution: 10-14.99 Percent</li>
+                                    <li id="15AndMorePercentSomeHighSchool" class="accordion-last">Some High School Distribution: 15+ Percent</li>
+                                </ol>
+                            </div>
+
+                            <h6 id="highSchool" class="accordion-middle"> High School </h6>
+                            <div>
+                                <ol>
+                                    <li id="under20PercentHighSchool" class="accordion-last">High School: 0-19.99 Percent</li>
+                                    <li id="20-2999PercentHighSchool" class="accordion-last">High School: 20-29.99 Percent</li>
+                                    <li id="30-3999PercentHighSchool" class="accordion-last">High School: 30-39.99 Percent</li>
+                                    <li id="40AndMorePercentHighSchool" class="accordion-last">High School: 40+ Percent</li>
+                                </ol>
+                            </div>
+
+                            <h6 id="someCollege" class="accordion-middle"> Some College or Associates </h6>
+                            <div>
+                                <ol>
+                                    <li id="0-1999PercentSomeCollege" class="accordion-last">some College Distribution: 0-19.99 Percent</li>
+                                    <li id="20-2999PercentSomeCollege" class="accordion-last">some College Distribution: 20-29.99 Percent</li>
+                                    <li id="30-3999PercentSomeCollege" class="accordion-last">some College Distribution: 30-39.99 Percent</li>
+                                    <li id="40AndMorePercentSomeCollege" class="accordion-last">some College Distribution: 40-49.99 Percent</li>
+                                </ol>
+                            </div>      
+
+                            <h6 id="Bachelors" class="accordion-middle"> Bachelors </h6>
+                            <div>
+                                <ol>
+                                    <li id="0-0999PercentBachelors" class="accordion-last">Bachelor's Distribution: 0-9.99</li>
+                                    <li id="10-1999PercentBachelors" class="accordion-last">Bachelor's Distribution: 10-19.99 Percent</li>
+                                    <li id="20-2999PercentBachelors" class="accordion-last">Bachelor's Distribution: 20-29.99 Percent</li>
+                                    <li id="30AndMorePercentBachelors" class="accordion-last">Bachelor's Distribution: 30 And More Percent</li>
+                                </ol>
+                            </div>
+
+                            <h6 id="Graduate" class="accordion-middle"> Graduate </h6>
+                            <div>
+                                <ol>
+                                    <li id="0-0499PercentGraduate" class="accordion-last">Graduate Distribution: 0-4.99 Percent</li>
+                                    <li id="5-0999PercentGraduate" class="accordion-last">Graduate Distribution: 5-9.99 Percent</li>
+                                    <li id="10-1499PercentGraduate" class="accordion-last">Graduate Distribution: 10-14.99 Percent</li>
+                                    <li id="15AndMorePercentGraduate" class="accordion-last">Graduate Distribution: 15 or more Percent</li>
+                                </ol>
+                            </div>
+                        </div>
+       
+                        <!--AGE DISTRIBUTION-->
+                        <h5 id="ageDistributionHeader" class="accordionHeader">Age Distribution</h5>
+                        <div id="ageDistribution">
+                            <h6 id="17AndUnderAge" class="accordion-middle"> Seventeen Years Old and Younger </h6>
+                            <div>
+                                <ol>
+                                    <li id="0-1999PercentSeventeenAndUnderAge" class="accordion-last">Seventeen Years Old and Younger: 0-19.99 Percent</li>
+                                    <li id="20-2499PercentSeventeenAndUnderAge" class="accordion-last">Seventeen Years Old and Younger: 20-24.99 Percent</li>
+                                    <li id="25-2999PercentSeventeenAndUnderAge" class="accordion-last">Seventeen Years Old and Younger: 25-29.99 Percent</li>
+                                    <li id="30AndMorePercentSeventeenAndUnderAge" class="accordion-last">Seventeen Years Old and Younger: 30 And More Percent</li>
+                                </ol>
+                            </div>
+
+                            <h6 id="eighteenToTwentyfourAge" class="accordion-middle"> Eighteen to Twentyfour Years Old </h6>
+                            <div>
+                                <ol>
+                                    <li id="0-0399PercentEighteenToTwentyfourAge" class="accordion-last">Eighteen to Twentyfour Years Old: 0-3.99 Percent</li>
+                                    <li id="4-0799PercentEighteenToTwentyfourAge" class="accordion-last">Eighteen to Twentyfour Years Old: 4-7.99 Percent</li>
+                                    <li id="8-1199PercentEighteenToTwentyfourAge" class="accordion-last">Eighteen to Twentyfour Years Old: 8-11.99 Percent</li>
+                                    <li id="12AndMorePercentEighteenToTwentyfourAge" class="accordion-last">Eighteen to Twentyfour Years Old: 12 And More Percent</li>
+                                </ol>
+                            </div>
+
+                            <h6 id="twentyfiveToThirtyfourAge" class="accordion-middle"> Twentyfive to Thirtyfour Years Old </h6>
+                            <div>
+                                <ol>
+                                    <li id="0-0799PercentTwentyfiveToThirtyfourAge" class="accordion-last">Twentyfive to Thirtyfour Years Old: 0-7.99 Percent</li>
+                                    <li id="8-1099PercentTwentyfiveToThirtyfourAge" class="accordion-last">Twentyfive to Thirtyfour Years Old: 8-10.99 Percent</li>
+                                    <li id="11-1399PercentTwentyfiveToThirtyfourAge" class="accordion-last">Twentyfive to Thirtyfour Years Old: 11-13.99 Percent</li>
+                                    <li id="14AndMorePercentTwentyfiveToThirtyfourAge" class="accordion-last">Twentyfive to Thirtyfour Years Old: 14 And More Percent</li>
+                                </ol>
+                            </div>  
+
+                            <h6 id="ThirtyfiveToFortyfourAge" class="accordion-middle"> Thirtyfive to Fortyfour Years Old </h6>
+                            <div>
+                                <ol>
+                                    <li id="0-0799PercentThirtyfiveToFortyfourAge" class="accordion-last">Thirtyfive to Fortyfour Years Old: 0-7.99 Percent</li>
+                                    <li id="8-1099PercentThirtyfiveToFortyfourAge" class="accordion-last">Thirtyfive to Fortyfour Years Old: 8-10.99 Percent</li>
+                                    <li id="11-1399PercentThirtyfiveToFortyfourAge" class="accordion-last">Thirtyfive to Fortyfour Years Old: 11-13.99 Percent</li>
+                                    <li id="14AndMorePercentThirtyfiveToFortyfourAge" class="accordion-last">Thirtyfive to Fortyfour Years Old: 14 And More Percent</li>
+                                </ol>
+                            </div>
+
+                            <h6 id="FortyfiveToFiftyfourAge" class="accordion-middle"> Fortyfive To Fiftyfour Years Old </h6>
+                            <div>
+                                <ol>
+                                    <li id="0-0799PercentFortyfiveToFiftyfourAge" class="accordion-last">Fortyfive To Fiftyfour Years Old: 0-7.99 Percent</li>
+                                    <li id="8-1099PercentFortyfiveToFiftyfourAge" class="accordion-last">Fortyfive To Fiftyfour Years Old: 8-10.99 Percent</li>
+                                    <li id="11-1399PercentFortyfiveToFiftyfourAge" class="accordion-last">Fortyfive To Fiftyfour Years Old: 11-13.99 Percent</li>
+                                    <li id="14AndMorePercentFortyfiveToFiftyfourAge" class="accordion-last">Fortyfive To Fiftyfour Years Old: 14 And More Percent</li>
+                                </ol>
+                            </div>
+
+                            <h6 id="FiftyfiveToSixtyfourAge" class="accordion-middle"> Fiftyfive To Sixtyfour </h6>
+                            <div>
+                                <ol>
+                                    <li id="0-0999PercentFiftyfiveToSixtyfourAge" class="accordion-last">Fiftyfive To Sixtyfour: 0-9.99 Percent</li>
+                                    <li id="10-1499PercentFiftyfiveToSixtyfourAge" class="accordion-last">Fiftyfive To Sixtyfour: 10-14.99 Percent</li>
+                                    <li id="15-1999PercentFiftyfiveToSixtyfourAge" class="accordion-last">Fiftyfive To Sixtyfour: 15-19.99 Percent</li>
+                                    <li id="20AndMorePercentFiftyfiveToSixtyfourAge" class="accordion-last">Fiftyfive To Sixtyfour: 20 And More Percent</li>
+                                </ol>
+                            </div>
+
+                            <h6 id="sixtyfiveAndOlderAge" class="accordion-middle"> Sixtyfive And Older </h6>
+                            <div>
+                                <ol>
+                                    <li id="0-0499PercentSixtyfiveAndOlderAge" class="accordion-last">Sixtyfive And Older: 0-4.99 Percent</li>
+                                    <li id="5-0999PercentSixtyfiveAndOlderAge" class="accordion-last">Sixtyfive And Older: 5-9.99 Percent</li>
+                                    <li id="10-1499PercentSixtyfiveAndOlderAge" class="accordion-last">Sixtyfive And Older: 10-14.99 Percent</li>
+                                    <li id="15-1999PercentSixtyfiveAndOlderAge" class="accordion-last">Sixtyfive And Older: 15-19.99 Percent</li>
+                                    <li id="20AndMorePercentSixtyfiveAndOlderAge" class="accordion-last">Sixtyfive And Older: 20 And More Percent</li>
+                                </ol>
+                            </div>
+                        </div>
+       
+                        <!--SEX RATIO DISTRIBUTION-->
+                        <h5 id="SexRatioHeader" class="accordionHeader">Sex Total Population Ratio</h5>
+                        <div id="SexRatio">
+                            <h6 id="MaleRatio" class="accordion-middle"> Male Total Population Ratio </h6>
+                            <div>
+                                <ol>
+                                    <li id="Under46PercentMaleRatio" class="accordion-last">Male Total Population Ratio: Under 46 Percent</li>
+                                    <li id="46-4799PercentMaleRatio" class="accordion-last">Male Total Population Ratio: 46-47.99 Percent</li>
+                                    <li id="48-4999PercentMaleRatio" class="accordion-last">Male Total Population Ratio: 48-49.99 Percent</li>
+                                    <li id="50-5199PercentMaleRatio" class="accordion-last">Male Total Population Ratio: 50-51.99 Percent</li>
+                                    <li id="52-5399PercentMaleRatio" class="accordion-last">Male Total Population Ratio: 52-53.99 Percent</li>
+                                    <li id="54PercentAndOverMaleRatio" class="accordion-last">Male Total Population Ratio: 54 Percent And Over</li>
+                                </ol>
+                            </div>
+
+                            <h6 id="FemaleRatio" class="accordion-middle"> Female Total Population Ratio </h6>
+                            <div>
+                                <ol>
+                                    <li id="Under46PercentFemaleRatio" class="accordion-last">Female Total Population Ratio: Under 46 Percent</li>
+                                    <li id="46-4799PercentFemaleRatio" class="accordion-last">Female Total Population Ratio: 46-47.99 Percent</li>
+                                    <li id="48-4999PercentFemaleRatio" class="accordion-last">Female Total Population Ratio: 48-49.99 Percent</li>
+                                    <li id="50-5199PercentFemaleRatio" class="accordion-last">Female Total Population Ratio: 50-51.99 Percent</li>
+                                    <li id="52-5399PercentFemaleRatio" class="accordion-last">Female Total Population Ratio: 52-53.99 Percent</li>
+                                    <li id="54PercentAndOverFemaleRatio" class="accordion-last">Female Total Population Ratio: 54 Percent And Over</li>
+                                </ol>
+                            </div>
+                        </div>
+       
+                        <!--Marital Status DISTRIBUTION-->
+                        <h5 id="MaritalStatusHeader" class="accordionHeader">Marital Status Distribution</h5>
+                        <div id="MaritalStatus">
+                            <h6 id="NeverMarried" class="accordion-middle"> Never Married Distribution </h6>
+                            <div>
+                                <ol>
+                                    <li id="0-1499PercentNeverMarried" class="accordion-last">Never Married Distribution: 0-14.99 Percent</li>
+                                    <li id="15-2499PercentNeverMarried" class="accordion-last">Never Married Distribution: 15-24.99 Percent</li>
+                                    <li id="25-3499PercentNeverMarried" class="accordion-last">Never Married Distribution: 25-34.99 Percent</li>
+                                    <li id="35AndOverPercentNeverMarried" class="accordion-last">Never Married Distribution: 35 And More Percent</li>
+                                </ol>
+                            </div>
+
+                            <h6 id="NowMarried" class="accordion-middle"> Now Married Distribution </h6>
+                            <div>
+                                <ol>
+                                    <li id="0-3999PercentNowMarried" class="accordion-last">Now Married Distribution: 0-39.99 Percent</li>
+                                    <li id="40-4999PercentNowMarried" class="accordion-last">Now Married Distribution: 40-49.99 Percent</li>
+                                    <li id="50-5999PercentNowMarried" class="accordion-last">Now Married Distribution: 50-59.99 Percent</li>
+                                    <li id="60AndOverPercentNowMarried" class="accordion-last">Now Married Distribution: 60 Percent And Over</li>
+                                </ol>
+                            </div>
+
+                            <h6 id="Widowed" class="accordion-middle"> Widowed Distribution </h6>
+                            <div>
+                                <ol>
+                                    <li id="0-0299PercentWidowed" class="accordion-last">Widowed Distribution: 0-2.99 Percent</li>
+                                    <li id="3-0599PercentWidowed" class="accordion-last">Widowed Distribution: 3-5.99 Percent</li>
+                                    <li id="6-0899PercentWidowed" class="accordion-last">Widowed Distribution: 6-8.99 Percent</li>
+                                    <li id="9AndOverPercentWidowed" class="accordion-last">Widowed Distribution: 9 Percent And Over</li>
+                                </ol>
+                            </div>
+
+                            <h6 id="Divorced" class="accordion-middle"> Divorced Distribution </h6>
+                            <div>
+                                <ol>
+                                    <li id="0-0999PercentDivorced" class="accordion-last">Divorced Distribution: 0-9.99 Percent</li>
+                                    <li id="10-1499PercentDivorced" class="accordion-last">Divorced Distribution: 10-14.99 Percent</li>
+                                    <li id="15AndOverPercentDivorced" class="accordion-last">Female Marital Status: 15 Percent And Over</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <h5 id="appendedListHeader"> Menu Items Selected </h5>
+                        <ol id="appendedList" class="col-lg-12">
+                        </ol>
+                        <h5 id="removeAppendedListChild">Delete Last Menu Item Selected</h5>
+                    </div> 
+                    <div id="map" class="col-lg-9"></div>              
+                </div>
+                <!-- graphs -->
+                <div class='row'> 
+                    <div id="showClickedCounty" class="text-center"></div>   
+                    <div id="firstGraphRow" class="col-lg-12">  <div id="incomeBarGraph" class="col-lg-4"></div> <div id="racePieChart" class="col-lg-4"></div> <div id="educationStackedBarGraph" class="col-lg-3 col-lg-offset-1"></div> </div>
+                    <div id="secondGraphRow" class="col-lg-12"> <div id="ageStackedBarGraph" class="col-lg-4"></div> <div id="sexBarGraph" class="col-lg-3 col-lg-offset-1"> </div> <div id="marriagePieChart" class="col-lg-3 col-lg-offset-1"> </div> </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Contact Start Bootstrap</h2>
-                <p>Feel free to email us to provide some feedback on our templates, give us suggestions for new templates and themes, or to just say hello!</p>
-                <p><a href="mailto:feedback@startbootstrap.com">feedback@startbootstrap.com</a>
-                </p>
-                <ul class="list-inline banner-social-buttons">
-                    <li>
-                        <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                    </li>
-                    <li>
-                        <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
-                    </li>
-                </ul>
+    <section class="container content-section text-center">
+        <div class="container">     
+            <div class="row">
+                <div id="contact" class="col-lg-8 col-lg-offset-2">
+                    <h2>Contact Me!</h2>
+                    <p>Feel free to email me to provide some feedback on my app, give any suggestions for improving Census App, or to just say hello!</p>
+                    <p><a href="mailto:alejandroj1234@gmail.com">alejandroj1234@gmail.com</a>
+                    </p>
+                    <p>To see how this application was put together checkout the github link below!</p>
+                    <ul class="list-inline banner-social-buttons">
+                        <li>
+                            <a href="https://github.com/alejandroj1234/template" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -135,7 +440,7 @@
     <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <p>Copyright &copy; Your Website 2014</p>
+            <p>Copyright &copy; Census App 2015</p>
         </div>
     </footer>
 
@@ -148,11 +453,20 @@
     <!-- Plugin JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
 
-    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+    <!--Include D3.JS libraries -->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src="http://d3js.org/queue.v1.min.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 
-    <!-- Custom Theme JavaScript -->
+    <!-- HTML jQuery effects -->
     <script src="js/grayscale.js"></script>
+
+    <!-- JS files for App --> 
+    <script src="/js/json_formatters.js"></script>
+    <script src="/js/API_calls.js"></script>
+    <script src="/js/D3_maps_and_menus.js"></script>
+    <script src="/js/D3_charts.js"></script>
 
 </body>
 

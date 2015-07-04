@@ -1,0 +1,267 @@
+/* Start of CSS for the appended list*/
+
+#appendedList
+{
+    float:left;
+    z-index: 1;
+    background-color: white; 
+    
+}
+
+#appendedListHeader
+{
+
+    -webkit-border-radius:20px;
+    -moz-border-radius:20px;
+    -o-border-radius:20px;
+    border-radius:20px;
+    overflow:hidden;
+    margin:0 auto;
+    padding:8px 12px;
+    background:rgb(255, 140, 0);
+    text-align: center;
+    color:white;
+
+}
+
+.appended-list-item
+{
+    font-size: 10px;
+    list-style-type: none;
+    margin-left: auto;
+    margin-right: auto;
+    color: orange;
+    border-bottom:1px solid #2C3E50;
+    border-right:1px solid #2C3E50;
+    border-left:1px solid #2C3E50;
+    text-align: center;
+
+}
+
+/* End of CSS for the appended list*/
+
+
+/*Start of CSS for the delete menu items button*/
+
+#removeAppendedListChild
+{
+
+    -webkit-border-radius:20px;
+    -moz-border-radius:20px;
+    -o-border-radius:20px;
+    border-radius:20px;
+    overflow:hidden;
+    margin:0 auto;
+    cursor:pointer;
+    padding:8px 12px;
+    background:rgb(255, 140, 0);
+    text-align: center;
+    color:white;
+
+}
+
+/* End of CSS for the delete menu item*/
+
+
+/* The following CSS is for the accordion menu    */
+
+#dropDownMenusAccordion
+{
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    -o-border-radius:8px;
+    border-radius:8px;
+    overflow:hidden;
+}
+
+.accordionHeader
+{
+    width:100%;
+    margin:0 auto;
+    padding:10px 15px;
+    cursor:pointer;
+    background:rgb(152, 171, 197);
+    border-bottom:1px solid #2C3E50;
+    color:white;
+}
+
+.accordion-middle
+{
+    
+    margin:0 auto;
+    padding:8px 15px;
+    cursor:pointer;
+    background:rgb(138, 137, 166);
+    border-bottom:1px solid #2C3E50;
+    color:white;
+}
+
+.accordion-last
+{
+    
+    margin:0 auto;
+    /*padding:6px 9px;*/
+    cursor:pointer;
+    background: rgb(123, 104, 136);
+    font-size: 10px;
+    list-style-type: none;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+}
+
+ol
+{
+ background: rgb(123, 104, 136);   
+ margin-bottom: 0px;
+}
+
+ .accordionHeader:hover  
+{
+    
+    opacity: 0.5;
+}
+
+.accordion-middle:hover
+{
+    
+    opacity: 0.5;
+}
+
+.accordion-last:hover
+{
+    
+    opacity: 0.5;
+}
+
+/*   End of CSS for accordion menu    */
+
+
+
+/* CSS to make bootstrap stretch out to the edges of the scree */ 
+.my-fluid-container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/** CSS for the Axes on the D3.js charts **/
+.axis path,
+.axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+.y.axis {
+    font-size: 14px;
+}
+
+
+
+/*The following CSS is for the tooltip which hovers over the d3 charts*/
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+/*End of tool tip which hovers over D3 charts*/
+
+
+
+/*CSS for the map */
+.counties {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+  stroke-opacity: 0.2;
+}
+
+.CountiesRenderMapHover {
+    fill: none;
+    stroke: #fff;
+    stroke-linejoin: round;
+    stroke-width: 2.5;
+}
+
+.states {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+}
+
+#map
+{
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    float: right;
+}
+
+.path path
+{
+    fill: #98abc5;
+}
+
+/*End of CSS for map*/
+
+
+
+/*CSS for Title Box*/
+#TitleBox
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 32%;
+}
+
+
+
+/*CSS for hovering over a d3.js chart*/
+ .hover_group:hover
+{
+    opacity: 0.5;
+}
+
+/*CSS for showing clicked county name*/
+#showClickedCounty
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    font-size: 24px;
+    text-align: center;
+}
+
+/*CSS for the appended county name*/
+#clickedCountyName
+{
+    margin-left: auto;
+    margin-right: auto;
+}

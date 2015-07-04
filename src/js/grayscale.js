@@ -28,3 +28,15 @@ $(function() {
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
+
+
+// jQuery for page scrolling feature - requires jQuery Easing plugin
+$(function() {
+    $('#map').bind('click', function(event) {
+        $('html, body').stop().animate({
+            scrollTop: $('#racePieChart').offset().top
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
+});
+
